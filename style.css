@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+:root {
+    --moderate_cyan: hsl(176, 50%, 47%);
+    --dark_cyan: hsl(176, 72%, 28%);
+    --blue: hsl(0, 0%, 0%);
+    --dark_gray: hsl(0, 0%, 48%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Commissioner', sans-serif;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.header {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./images/image-hero-desktop.jpg') no-repeat center center/cover;
+    height: 55vh;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding-inline: 6rem;
+    padding-top: 3rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    margin-inline: 2rem;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: .3s ease;
+}
+
+.nav a:hover {
+    color: var(--moderate_cyan);
+}
