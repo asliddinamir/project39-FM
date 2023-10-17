@@ -11,6 +11,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 body {
@@ -50,13 +51,16 @@ body {
     background-color: #eee;
     min-height: 100vh;
     position: relative;
+    overflow-x: visible;
 }
 
-.bookmark_style {
+.bs {
     background-color: #fff;
     border: .3px solid rgba(128, 128, 128, 0.248);
     border-radius: 10px;
     width: 690px;
+    overflow-x: visible;
+    padding: 0 3rem 3rem 3rem;
 }
 
 p {
@@ -66,9 +70,7 @@ p {
 
 .bookmark_header {
     text-align: center;
-    position: absolute;
-    top: -14vh;
-    padding: 0 3rem 3rem 3rem;
+    transform: translateY(-14vh);
 }
 
 .bookmark_header p {
@@ -123,4 +125,64 @@ p {
 
 .bookmark_header_btns button:nth-child(2):hover {
     opacity: .5;
+}
+
+.bookmark_stats {
+    transform: translateY(-10vh);
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.bs_top {
+    display: flex;
+    /* align-items: center; */
+    text-align: center;
+    justify-content: center;
+    /* gap: 3rem; */
+
+}
+
+.bs_top h1 {
+    font-size: 36px;
+}
+
+.bs_stat {
+    width: 100%;
+    padding-right: 2rem;
+}
+
+.meter {
+    width: 100%;
+}
+
+.meter {
+    display: block;
+    width: 100%;
+    height: 1.1rem;
+    border-radius: 5rem;
+    overflow: hidden;
+    background-color: #e1e0e0;
+    margin-bottom: 0.2rem;
+}
+
+.meter::-webkit-meter-bar {
+    width: 100%;
+    height: 1.1rem;
+    border: none;
+    background: none;
+}
+
+.meter::-moz-meter-bar {
+    width: 100%;
+    border-radius: 5rem;
+    background: none;
+    background: var(--moderate_cyan);
+}
+
+.meter::-webkit-meter-optimum-value {
+    border-radius: 5rem;
+    background: none;
+    background: var(--moderate_cyan);
 }
