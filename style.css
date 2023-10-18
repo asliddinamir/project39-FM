@@ -89,7 +89,7 @@ p {
     margin-top: 2rem;
 }
 
-.bookmark_header_btns button:nth-of-type(1) {
+.mainBtn {
     background-color: var(--moderate_cyan);
     border: none;
     padding: 1rem 1.5rem;
@@ -102,7 +102,7 @@ p {
     transition: .3s ease;
 }
 
-.bookmark_header_btns button:nth-of-type(1):hover {
+.mainBtn:hover {
     background-color: var(--dark_cyan);
 }
 
@@ -138,11 +138,8 @@ p {
 
 .bs_top {
     display: flex;
-    /* align-items: center; */
     text-align: center;
     justify-content: center;
-    /* gap: 3rem; */
-
 }
 
 .bs_top h1 {
@@ -196,5 +193,48 @@ p {
 .bookmark_about h2 {
     font-size: 20px;
     margin-bottom: 1.5rem;
+}
 
+.bookmark_about_inner {
+    border: .3px solid #ccc;
+    margin-block: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bai_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bai_header h3 {
+    font-size: 17px;
+}
+
+.bai_header span {
+    color: var(--moderate_cyan);
+    font-weight: 500;
+}
+
+.bai_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bai_footer h1 {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.bai_footer h1 small {
+    font-size: 16px;
+    color: var(--dark_gray);
+    font-weight: 300;
 }
