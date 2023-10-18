@@ -362,4 +362,15 @@ footer a {
         padding-bottom: 0;
     }
 
+    .bai_footer,
+    .bai_header {
+        flex-direction: column;
+        align-items: start;
+        gap: .5rem;
+    }
+
+    .bai_footer {
+        gap: 1.5rem;
+    }
+
 }
