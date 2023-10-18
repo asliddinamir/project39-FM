@@ -6,3 +6,8 @@ menu.addEventListener('click', () => {
     nav.classList.toggle('show-nav');
     overlay.classList.toggle('show-overlay');
 });
+
+overlay.addEventListener('click', () => {
+    nav.classList.toggle('show-nav');
+    overlay.classList.toggle('show-overlay');
+})
