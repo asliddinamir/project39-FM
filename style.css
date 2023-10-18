@@ -66,6 +66,7 @@ body {
 p {
     font-size: 16px;
     color: var(--dark_gray);
+    line-height: 2;
 }
 
 .bookmark_header {
@@ -185,4 +186,15 @@ p {
     border-radius: 5rem;
     background: none;
     background: var(--moderate_cyan);
+}
+
+.bookmark_about {
+    padding-top: 3rem;
+    transform: translateY(-6vh);
+}
+
+.bookmark_about h2 {
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+
 }
