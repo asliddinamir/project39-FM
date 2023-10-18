@@ -30,6 +30,10 @@ body {
     padding-top: 3rem;
 }
 
+.header img {
+    z-index: 2;
+}
+
 .nav a {
     text-decoration: none;
     color: #fff;
@@ -59,6 +63,7 @@ body {
     border: .3px solid rgba(128, 128, 128, 0.248);
     border-radius: 10px;
     width: 690px;
+    margin-inline: calc(50% - 350px);
     overflow-x: visible;
     padding: 0 3rem 3rem 3rem;
 }
@@ -105,7 +110,6 @@ p {
 .mainBtn:hover {
     background-color: var(--dark_cyan);
 }
-
 
 .bookmark_header_btns button:nth-child(2) {
     display: flex;
@@ -248,4 +252,114 @@ footer {
 
 footer a {
     color: crimson;
+}
+
+.menu {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1;
+}
+
+.overlay.show-overlay {
+    display: block;
+}
+
+@media(max-width:740px) {
+    .header {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./images/image-hero-mobile.jpg') no-repeat top center/cover;
+        padding-inline: 3rem;
+        padding-top: 3rem;
+    }
+
+    .nav {
+        position: absolute;
+        top: -100%;
+        /* transition: .3s ease; */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .menu {
+        display: block;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .nav.show-nav {
+        top: 20%;
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        max-height: 214px;
+        border-radius: 15px;
+        z-index: 2;
+        transition-property: max-height, opacity;
+        transition-duration: 0.5s;
+        transition-timing-function: ease;
+    }
+
+    .nav.show-nav a {
+        color: black;
+        display: block;
+        font-size: 24px;
+        padding-block: 1.3rem;
+        border-bottom: .3px solid #ccc;
+    }
+
+    .bookmark_header_btns {
+        gap: .6rem;
+    }
+
+    .bs {
+        width: 90%;
+    }
+
+    .bookmark_header_btns button:nth-of-type(1) {
+        width: 88%;
+    }
+
+    .bookmark_header_btns button:nth-of-type(2) {
+        font-size: 0;
+        padding: 0;
+    }
+
+    .bookmark_header_btns button:nth-of-type(2) img {
+        padding: 0;
+    }
+
+    .bs_top {
+        flex-direction: column;
+        text-align: center;
+        margin: auto;
+    }
+
+    .bs_stat {
+        padding-block: 1rem;
+        padding-right: 0;
+    }
+
+    hr {
+        border: .3px solid #dbd9d9;
+    }
+
+    .bs_stat:nth-of-type(1) {
+        padding-top: 0;
+    }
+
+    .bs_stat:nth-of-type(3) {
+        padding-bottom: 0;
+    }
+
 }
