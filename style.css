@@ -317,6 +317,10 @@ footer a {
         border-bottom: .3px solid #ccc;
     }
 
+    .nav.show-nav a:hover {
+        color: var(--dark_cyan);
+    }
+
     .bookmark_header_btns {
         gap: .6rem;
     }
