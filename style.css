@@ -238,3 +238,14 @@ p {
     color: var(--dark_gray);
     font-weight: 300;
 }
+
+footer {
+    text-align: center;
+    background-color: #eee;
+    color: black;
+    padding: .5rem;
+}
+
+footer a {
+    color: crimson;
+}
