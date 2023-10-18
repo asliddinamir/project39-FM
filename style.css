@@ -283,7 +283,6 @@ footer a {
     .nav {
         position: absolute;
         top: -100%;
-        /* transition: .3s ease; */
         left: 50%;
         transform: translateX(-50%);
     }
@@ -302,7 +301,7 @@ footer a {
         width: 90%;
         left: 50%;
         transform: translateX(-50%);
-        max-height: 214px;
+        max-height: 218px;
         border-radius: 15px;
         z-index: 2;
         transition-property: max-height, opacity;
@@ -372,5 +371,23 @@ footer a {
     .bai_footer {
         gap: 1.5rem;
     }
+}
 
+@media(max-width:400px) {
+    .header {
+        padding-inline: 1.5rem;
+    }
+
+    .bs {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .bookmark_about_inner {
+        padding: 1rem;
+    }
+
+    .bookmark_stats,
+    .bookmark_about {
+        padding-top: 2rem;
+    }
 }
