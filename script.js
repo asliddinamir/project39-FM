@@ -8,6 +8,8 @@ const rewardSection = document.querySelector('.reward');
 const close = document.querySelector('.close');
 const radioInput = document.querySelector(".radio");
 const brHeaders = document.querySelectorAll(".br_header");
+const brFooters = document.querySelectorAll('.br_footer');
+
 
 brHeaders.forEach((brHeader) => {
     brHeader.addEventListener("click", function () {
@@ -17,6 +19,13 @@ brHeaders.forEach((brHeader) => {
         });
         const radioInput = brHeader.querySelector(".radio");
         radioInput.checked = true;
+
+        brFooters.forEach((brFooter) => {
+            brFooter.classList.remove("brf_show");
+        });
+
+        const brFooter = brHeader.closest('.bookmark_about_inner').querySelector('.br_footer');
+        brFooter.classList.add('brf_show');
     });
 });
 

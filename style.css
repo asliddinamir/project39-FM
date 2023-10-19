@@ -391,6 +391,10 @@ footer a {
 }
 
 .br_footer {
+    display: none;
+}
+
+.br_footer.brf_show {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -422,6 +426,7 @@ footer a {
     color: black;
     font-weight: 600;
     border: 1px solid #ccc;
+    margin-right: 1rem;
 }
 
 
@@ -539,6 +544,13 @@ footer a {
     .brs_header {
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .br_footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
     }
 }
 
