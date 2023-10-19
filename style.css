@@ -215,7 +215,7 @@ p {
     transform: translateY(-6vh);
 }
 
-.bookmark_about,
+.bookmark_about h2,
 .bookmark_reward h2 {
     font-size: 20px;
     margin-bottom: 1.5rem;
@@ -316,7 +316,7 @@ footer a {
     height: 80vh;
     width: 690px;
     margin-inline: calc(50% - 350px);
-    padding: 2rem 3rem;
+    padding: 2rem;
     background-color: #fff;
     border: .3px solid rgba(128, 128, 128, 0.248);
     border-radius: 15px;
@@ -335,6 +335,21 @@ footer a {
 
 .fixed-reward .close:hover {
     color: #000;
+}
+
+.br_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.br {
+    justify-content: start;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.bf h1 {
+    font-size: 20px;
 }
 
 @media(max-width:740px) {
