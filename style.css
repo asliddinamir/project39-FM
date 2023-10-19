@@ -215,7 +215,8 @@ p {
     transform: translateY(-6vh);
 }
 
-.bookmark_about h2 {
+.bookmark_about,
+.bookmark_reward h2 {
     font-size: 20px;
     margin-bottom: 1.5rem;
 }
@@ -294,6 +295,48 @@ footer a {
     display: block;
 }
 
+.reward {
+    display: none;
+}
+
+.fixed-reward {
+    position: fixed;
+    top: 50%;
+    left: 50.5%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    overflow: initial;
+}
+
+.fixed-reward .bookmark_reward {
+    height: 80vh;
+    width: 690px;
+    margin-inline: calc(50% - 350px);
+    padding: 2rem 3rem;
+    background-color: #fff;
+    border: .3px solid rgba(128, 128, 128, 0.248);
+    border-radius: 15px;
+    position: relative;
+}
+
+.fixed-reward .close {
+    position: absolute;
+    color: gray;
+    font-size: 22px;
+    font-weight: 900;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.fixed-reward .close:hover {
+    color: #000;
+}
+
 @media(max-width:740px) {
     .header {
         background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./images/image-hero-mobile.jpg') no-repeat top center/cover;
@@ -350,14 +393,13 @@ footer a {
         width: 90%;
     }
 
+    .fixed-reward .bookmark_reward {
+        width: 180%;
+    }
+
     .bookmark_header_btns button:nth-of-type(1) {
         width: 88%;
     }
-
-    /* .bookmarkBtnDiv {
-        padding: 0;
-        z-index: -1;
-    } */
 
     .bookmarkBtn {
         display: none;
@@ -408,7 +450,8 @@ footer a {
         padding-inline: 1.5rem;
     }
 
-    .bs {
+    .bs,
+    .fixed-reward .bookmark_reward {
         padding: 0 1.5rem 1.5rem 1.5rem;
     }
 
