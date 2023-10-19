@@ -342,11 +342,17 @@ footer a {
     justify-content: space-between;
 }
 
+.bri {
+    position: relative;
+}
+
 .br {
     justify-content: start;
     gap: 1rem;
     cursor: pointer;
 }
+
+
 
 .bf h1 {
     font-size: 20px;
@@ -458,6 +464,11 @@ footer a {
     .bai_footer {
         gap: 1.5rem;
     }
+
+    .br_header {
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
 
 @media(max-width:400px) {
@@ -467,7 +478,7 @@ footer a {
 
     .bs,
     .fixed-reward .bookmark_reward {
-        padding: 0 1.5rem 1.5rem 1.5rem;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
     }
 
     .bookmark_about_inner {

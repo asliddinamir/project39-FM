@@ -22,7 +22,7 @@ showRewardBtn.addEventListener('click', () => {
 
 menu.addEventListener('click', () => {
     nav.classList.toggle('show-nav');
-    overlay.classList.add('show-overlay');
+    overlay.classList.toggle('show-overlay');
     if (nav.classList.contains('show-nav')) {
         rewardSection.classList.remove('fixed-reward');
     }
