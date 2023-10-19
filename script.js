@@ -6,6 +6,20 @@ const bookmarkBtn = document.querySelector('.bookmarkBtn');
 const showRewardBtn = document.getElementById('showReward');
 const rewardSection = document.querySelector('.reward');
 const close = document.querySelector('.close');
+const radioInput = document.querySelector(".radio");
+const brHeaders = document.querySelectorAll(".br_header");
+
+brHeaders.forEach((brHeader) => {
+    brHeader.addEventListener("click", function () {
+        const checkedRadios = document.querySelectorAll(".br_header .radio:checked");
+        checkedRadios.forEach((radio) => {
+            radio.checked = false;
+        });
+        const radioInput = brHeader.querySelector(".radio");
+        radioInput.checked = true;
+    });
+});
+
 
 close.addEventListener('click', () => {
     rewardSection.classList.remove('fixed-reward')

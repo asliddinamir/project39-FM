@@ -339,6 +339,12 @@ footer a {
 
 .br_header {
     display: flex;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.brs_header {
+    display: flex;
     justify-content: space-between;
 }
 
@@ -352,11 +358,72 @@ footer a {
     cursor: pointer;
 }
 
-
-
 .bf h1 {
     font-size: 20px;
 }
+
+.radio {
+    grid-area: 1/1/span 2/1;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    appearance: none;
+    border-radius: 50%;
+}
+
+.radio:checked {
+    background-color: var(--moderate_cyan);
+}
+
+.radio::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: white
+}
+
+.radio:checked::before {
+    background-color: var(--moderate_cyan);
+}
+
+.br_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 1rem;
+}
+
+.continueBtn {
+    background-color: var(--moderate_cyan);
+    border: none;
+    padding: 1rem 1.5rem;
+    font-family: inherit;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: .3s ease;
+}
+
+.continueBtn:hover {
+    background-color: var(--dark_cyan);
+}
+
+.pledgeInput {
+    padding: .8rem 2rem;
+    font-family: inherit;
+    border-radius: 20px;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    border: 1px solid #ccc;
+}
+
 
 @media(max-width:740px) {
     .header {
@@ -466,6 +533,10 @@ footer a {
     }
 
     .br_header {
+        align-items: center;
+    }
+
+    .brs_header {
         flex-direction: column;
         gap: 2rem;
     }
