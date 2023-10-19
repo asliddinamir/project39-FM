@@ -111,25 +111,46 @@ p {
     background-color: var(--dark_cyan);
 }
 
-.bookmark_header_btns button:nth-child(2) {
+.bookmarkBtnDiv {
+    background-color: rgb(240, 240, 240);
+    border-radius: 30px;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     cursor: pointer;
     font-size: 16px;
-    border-radius: 50px;
-    border: none;
-    font-family: inherit;
-    font-weight: 500;
-    padding-right: 1.5rem;
+    z-index: 1 !important;
+    font-weight: 700;
     transition: .3s ease;
 }
 
-.bookmark_header_btns button:nth-child(2) img {
-    padding-right: 1.5rem;
+.bookmarkImg {
+    background: url('./images/icon-bookmark.svg') no-repeat center center/cover;
+    height: 56px;
+    width: 56px;
+    z-index: 2;
 }
 
-.bookmark_header_btns button:nth-child(2):hover {
-    opacity: .5;
+.bookmarkBtn {
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    padding-inline: 1.5rem;
+    z-index: 1;
+}
+
+
+.bookmarkBtnDiv:hover {
+    opacity: .7;
+}
+
+.bookmarkBtnDiv.bookmarked .bookmarkImg {
+    background: url('./images/icon-bookmarked.svg') no-repeat center center/cover;
+}
+
+.bookmarkBtnDiv.bookmarked .bookmarkImg:hover {
+    background-color: var(--dark_cyan);
 }
 
 .bookmark_stats {
@@ -333,13 +354,18 @@ footer a {
         width: 88%;
     }
 
-    .bookmark_header_btns button:nth-of-type(2) {
-        font-size: 0;
+    /* .bookmarkBtnDiv {
         padding: 0;
+        z-index: -1;
+    } */
+
+    .bookmarkBtn {
+        display: none;
+
     }
 
-    .bookmark_header_btns button:nth-of-type(2) img {
-        padding: 0;
+    .bookmarkImg {
+        width: 60px;
     }
 
     .bs_top {
