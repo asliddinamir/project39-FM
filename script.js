@@ -19,14 +19,11 @@ radioInputs.forEach((radioInput) => {
     radioInput.addEventListener('change', () => {
         const pledgeValue = parseFloat(radioInput.getAttribute('data-pledge-value'));
         if (!isNaN(pledgeValue)) {
-            // Update the amount backed and format it
             const totalAmount = parseFloat(amountBacked.textContent.replace(/[^0-9.]/g, ''));
             amountBacked.textContent = `$${(totalAmount + pledgeValue).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
 
-            // Update the meter value
             meter.value = totalAmount + pledgeValue;
 
-            // Increment the backers by 1
             const totalBackers = parseInt(backers.textContent.replace(/,/g, ''));
             backers.textContent = (totalBackers + 1).toLocaleString();
         }
@@ -34,9 +31,7 @@ radioInputs.forEach((radioInput) => {
 });
 
 function formatNumberWithCommas(number) {
-    // Convert the number to a string and remove trailing .0 if it exists
     const formattedNumber = number.toString().replace(/\.0$/, '');
-    // Add commas for thousands separator
     return formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
@@ -47,24 +42,20 @@ function updateAmountFormatAndBacked() {
     pledgeInputs.forEach((pledgeInput) => {
         const inputValue = parseFloat(pledgeInput.value);
         if (!isNaN(inputValue)) {
-            // Update the total amount backed and format it
             totalAmount += inputValue;
             const formattedTotalAmount = formatNumberWithCommas(totalAmount);
             amountBacked.textContent = `$${formattedTotalAmount}`;
 
-            // Update the meter value
             meter.value = totalAmount;
 
-            // Increment the backers by 1
             totalBackers += 1;
             backers.textContent = totalBackers.toLocaleString();
-            pledgeInput.value = ''; // Clear the input field
+            pledgeInput.value = '';
         }
     });
 }
 
 
-// Add an event listener to each pledge input
 pledgeInputs.forEach((pledgeInput) => {
     pledgeInput.addEventListener('change', () => {
         updateAmountFormatAndBacked();
@@ -81,9 +72,8 @@ continueButtons.forEach((button) => {
         const pledgeInput = button.closest(".br_footer").querySelector('.pledgeInput');
         const inputValue = parseFloat(pledgeInput.value);
         if (!isNaN(inputValue)) {
-            // Update the amount backed with the input value
             updateAmountFormatAndBacked();
-            pledgeInput.value = ""; // Clear the input field
+            pledgeInput.value = "";
         }
     });
 });
