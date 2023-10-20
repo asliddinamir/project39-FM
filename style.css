@@ -607,6 +607,7 @@ footer a {
         gap: 1rem;
         flex-direction: column;
         width: 90%;
+        background-color: red;
     }
 
     .forms input {
