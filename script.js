@@ -13,6 +13,9 @@ const amountBacked = document.querySelector('.amountBacked');
 const backers = document.querySelector('.backers');
 const meter = document.querySelector('.meter');
 const pledgeInputs = document.querySelectorAll('.pledgeInput');
+const continueButtons = document.querySelectorAll('.continueBtn');
+const fixedSupport = document.querySelector('.support');
+
 
 
 radioInputs.forEach((radioInput) => {
@@ -66,7 +69,6 @@ updateAmountFormatAndBacked();
 
 
 
-const continueButtons = document.querySelectorAll('.continueBtn');
 continueButtons.forEach((button) => {
     button.addEventListener("click", () => {
         const pledgeInput = button.closest(".br_footer").querySelector('.pledgeInput');
@@ -75,7 +77,15 @@ continueButtons.forEach((button) => {
             updateAmountFormatAndBacked();
             pledgeInput.value = "";
         }
+        fixedSupport.classList.toggle('fixed_support');
+        rewardSection.classList.toggle('fixed-reward');
     });
+});
+
+const supportBtn = document.querySelector('.supportBtn');
+supportBtn.addEventListener('click', () => {
+    fixedSupport.classList.remove('fixed_support');
+    overlay.classList.remove('show-overlay'); v
 });
 
 brHeaders.forEach((brHeader) => {
@@ -110,6 +120,8 @@ showRewardBtn.addEventListener('click', () => {
     }
 });
 
+
+
 menu.addEventListener('click', () => {
     nav.classList.toggle('show-nav');
     overlay.classList.toggle('show-overlay');
@@ -122,6 +134,7 @@ overlay.addEventListener('click', () => {
     nav.classList.remove('show-nav');
     overlay.classList.remove('show-overlay');
     rewardSection.classList.remove('fixed-reward');
+    fixedSupport.classList.remove('fixed_support');
 });
 
 bookmarkBtnDiv.addEventListener('click', () => {
