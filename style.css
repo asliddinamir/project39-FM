@@ -601,6 +601,19 @@ footer a {
     }
 }
 
+@media(max-width: 600px) {
+    .forms {
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .forms input {
+        margin-right: 0;
+    }
+}
+
 @media(max-width:400px) {
     .header {
         padding-inline: 1.5rem;
