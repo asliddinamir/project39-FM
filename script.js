@@ -6,19 +6,97 @@ const bookmarkBtn = document.querySelector('.bookmarkBtn');
 const showRewardBtn = document.getElementById('showReward');
 const rewardSection = document.querySelector('.reward');
 const close = document.querySelector('.close');
-const radioInput = document.querySelector(".radio");
+const radioInputs = document.querySelectorAll(".radio");
 const brHeaders = document.querySelectorAll(".br_header");
 const brFooters = document.querySelectorAll('.br_footer');
+const amountBacked = document.querySelector('.amountBacked');
+const backers = document.querySelector('.backers');
+const meter = document.querySelector('.meter');
+const pledgeInputs = document.querySelectorAll('.pledgeInput');
 
+
+radioInputs.forEach((radioInput) => {
+    radioInput.addEventListener('change', () => {
+        const pledgeValue = parseFloat(radioInput.getAttribute('data-pledge-value'));
+        if (!isNaN(pledgeValue)) {
+            // Update the amount backed and format it
+            const totalAmount = parseFloat(amountBacked.textContent.replace(/[^0-9.]/g, ''));
+            amountBacked.textContent = `$${(totalAmount + pledgeValue).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+
+            // Update the meter value
+            meter.value = totalAmount + pledgeValue;
+
+            // Increment the backers by 1
+            const totalBackers = parseInt(backers.textContent.replace(/,/g, ''));
+            backers.textContent = (totalBackers + 1).toLocaleString();
+        }
+    });
+});
+
+function formatNumberWithCommas(number) {
+    // Convert the number to a string and remove trailing .0 if it exists
+    const formattedNumber = number.toString().replace(/\.0$/, '');
+    // Add commas for thousands separator
+    return formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function updateAmountFormatAndBacked() {
+    let totalAmount = parseFloat(amountBacked.textContent.replace(/[^0-9.]/g, ''));
+    let totalBackers = parseInt(backers.textContent.replace(/,/g, ''));
+
+    pledgeInputs.forEach((pledgeInput) => {
+        const inputValue = parseFloat(pledgeInput.value);
+        if (!isNaN(inputValue)) {
+            // Update the total amount backed and format it
+            totalAmount += inputValue;
+            const formattedTotalAmount = formatNumberWithCommas(totalAmount);
+            amountBacked.textContent = `$${formattedTotalAmount}`;
+
+            // Update the meter value
+            meter.value = totalAmount;
+
+            // Increment the backers by 1
+            totalBackers += 1;
+            backers.textContent = totalBackers.toLocaleString();
+            pledgeInput.value = ''; // Clear the input field
+        }
+    });
+}
+
+
+// Add an event listener to each pledge input
+pledgeInputs.forEach((pledgeInput) => {
+    pledgeInput.addEventListener('change', () => {
+        updateAmountFormatAndBacked();
+    });
+});
+
+updateAmountFormatAndBacked();
+
+
+
+const continueButtons = document.querySelectorAll('.continueBtn');
+continueButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const pledgeInput = button.closest(".br_footer").querySelector('.pledgeInput');
+        const inputValue = parseFloat(pledgeInput.value);
+        if (!isNaN(inputValue)) {
+            // Update the amount backed with the input value
+            updateAmountFormatAndBacked();
+            pledgeInput.value = ""; // Clear the input field
+        }
+    });
+});
 
 brHeaders.forEach((brHeader) => {
     brHeader.addEventListener("click", function () {
-        const checkedRadios = document.querySelectorAll(".br_header .radio:checked");
-        checkedRadios.forEach((radio) => {
-            radio.checked = false;
+        radioInputs.forEach((radioInput) => {
+            radioInput.checked = false;
         });
+
         const radioInput = brHeader.querySelector(".radio");
         radioInput.checked = true;
+        updateAmountFormatAndBacked();
 
         brFooters.forEach((brFooter) => {
             brFooter.classList.remove("brf_show");
@@ -29,11 +107,10 @@ brHeaders.forEach((brHeader) => {
     });
 });
 
-
 close.addEventListener('click', () => {
-    rewardSection.classList.remove('fixed-reward')
+    rewardSection.classList.remove('fixed-reward');
     overlay.classList.remove('show-overlay');
-})
+});
 
 showRewardBtn.addEventListener('click', () => {
     rewardSection.classList.toggle('fixed-reward');
