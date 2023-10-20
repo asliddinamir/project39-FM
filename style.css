@@ -315,12 +315,12 @@ footer a {
 .fixed-reward .bookmark_reward {
     height: 80vh;
     width: 690px;
-    margin-inline: calc(50% - 350px);
     padding: 2rem;
     background-color: #fff;
     border: .3px solid rgba(128, 128, 128, 0.248);
     border-radius: 15px;
     position: relative;
+    margin-inline: calc(100% - 350px);
 }
 
 .fixed-reward .close {
@@ -529,7 +529,7 @@ footer a {
     }
 
     .fixed-reward .bookmark_reward {
-        width: 90%;
+        width: 180%;
     }
 
     .bookmark_header_btns button:nth-of-type(1) {
