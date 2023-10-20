@@ -58,27 +58,22 @@ function updateAmountFormatAndBacked() {
     });
 }
 
-
-pledgeInputs.forEach((pledgeInput) => {
-    pledgeInput.addEventListener('change', () => {
-        updateAmountFormatAndBacked();
-    });
-});
-
 updateAmountFormatAndBacked();
 
 
-
 continueButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const pledgeInput = button.closest(".br_footer").querySelector('.pledgeInput');
+    button.addEventListener('click', () => {
+        const pledgeInput = button.closest('.br_footer').querySelector('.pledgeInput');
         const inputValue = parseFloat(pledgeInput.value);
-        if (!isNaN(inputValue)) {
+        if (isNaN(inputValue) || inputValue <= 0) {
+            alert('Please enter a valid pledge amount.');
+        } else {
+            // Update the amount and backers
             updateAmountFormatAndBacked();
-            pledgeInput.value = "";
+            pledgeInput.value = '';
+            fixedSupport.classList.toggle('fixed_support');
+            rewardSection.classList.toggle('fixed-reward');
         }
-        fixedSupport.classList.toggle('fixed_support');
-        rewardSection.classList.toggle('fixed-reward');
     });
 });
 
